@@ -34,5 +34,6 @@ runs:
         INPUT_TARGET_DIRECTORY: ${{ inputs.target-directory }}
         INPUT_ECR_LOGIN: ${{ inputs.ecr-login }}
         INPUT_AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
+        INPUT_AWS_REGION: ${{ inputs.aws-region }}
       run: ${{ github.action_path }}/action.sh
       shell: bash
