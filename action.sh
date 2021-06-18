@@ -1,5 +1,5 @@
 #!/bin/bash
-HELM_EXPERIMENTAL_OCI=1
+export HELM_EXPERIMENTAL_OCI=1
 set -e
 if [[ "${INPUT_ECR_LOGIN}" == "true" ]]; then
     aws ecr get-login-password --region ${INPUT_AWS_REGION} | helm registry login --username AWS --password-stdin "${INPUT_AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com"
