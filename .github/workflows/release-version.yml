@@ -13,5 +13,5 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: patriotsoftware/helm-pull-action
+      - name: patriotsoftware/helm-oci-pull-action
         uses: ./

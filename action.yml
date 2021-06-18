@@ -1,5 +1,5 @@
-name: Helm Pull Action
-description: Pull a helm chart to a local directory
+name: Helm OCI Pull Action
+description: Pull a Helm chart from an OCI-compliant repository and save to a local directory
 
 inputs:
   chart-and-tag: 

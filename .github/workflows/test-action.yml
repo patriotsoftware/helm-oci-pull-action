@@ -1,4 +1,4 @@
-name: Test helm-pull-action
+name: Test helm-oci-pull-action
 
 on: 
   push:
@@ -17,7 +17,7 @@ jobs:
         id: helm-pull
         uses: ./
         with:
-          chart-and-tag: public.ecr.aws/bitnami/keycloak-config-cli:latest
+          chart-and-tag: public.ecr.aws/tibcolabs/labs-air-helm-charts:air
           relative-target-directory: testhelmchart
       - name: List chart files
         run: ls ${{ steps.helm-pull.outputs.chart-path }}
