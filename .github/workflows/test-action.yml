@@ -18,6 +18,6 @@ jobs:
         uses: ./
         with:
           chart-and-tag: public.ecr.aws/bitnami/keycloak-config-cli:latest
-          target-directory: testhelmchart
+          relative-target-directory: testhelmchart
       - name: List chart files
         run: ls ${{ steps.helm-pull.outputs.chart-path }}
