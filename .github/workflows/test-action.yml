@@ -12,11 +12,12 @@ jobs:
     name: Test helm-pull-action
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v2
       - name: Pull Helm Chart
         id: helm-pull
         uses: ./
         with:
-          chart-and-tag:
+          chart-and-tag: public.ecr.aws/bitnami/keycloak-config-cli:latest
           target-directory: testhelmchart
       - name: List chart files
         run: ls ${{ steps.helm-pull.outputs.chart-path }}
