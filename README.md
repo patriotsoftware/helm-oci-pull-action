@@ -1,1 +1,1 @@
-# helm-pull-ecr-action
+# helm-pull-action
