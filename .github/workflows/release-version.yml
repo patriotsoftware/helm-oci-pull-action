@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "main"
-
 jobs:
   release-action:
     name: Release new version
@@ -13,5 +12,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: patriotsoftware/helm-oci-pull-action
-        uses: ./
+
+      - name: Bump Version
+        uses: patriotsoftware/semver-bump-action@v1
