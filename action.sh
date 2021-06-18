@@ -7,6 +7,6 @@ if [[ "${INPUT_ECR_LOGIN}" == "true" ]]; then
 fi
 helm chart pull "${INPUT_CHART_AND_TAG}" 
 echo "✅ ${INPUT_CHART_AND_TAG} pulled successfully"
-helm chart "${INPUT_CHART_AND_TAG}" --destination "${INPUT_RELATIVE_TARGET_DIRECTORY}"
+helm chart export "${INPUT_CHART_AND_TAG}" --destination "${INPUT_RELATIVE_TARGET_DIRECTORY}"
 echo "✅ ${INPUT_CHART_AND_TAG} saved to ${INPUT_RELATIVE_TARGET_DIRECTORY} successfully"
 echo "::set-output name=chart-path::$(pwd)/${INPUT_RELATIVE_TARGET_DIRECTORY}"
