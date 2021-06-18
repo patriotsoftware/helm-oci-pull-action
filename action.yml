@@ -5,10 +5,10 @@ inputs:
   chart-and-tag: 
     description: Helm Chart and tag to pull
     required: true
-  relative-target-directory:
-    description: Relative directory to use when saving the chart locally
+  target-directory:
+    description: Target directory to use when saving the chart locally
     required: false
-    default: helmchart
+    default: "./helmchart"
   ecr-login:
     description: "Values: true/false. Require ECR Login to pull"
     required: false
