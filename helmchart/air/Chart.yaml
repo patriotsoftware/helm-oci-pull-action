@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: 0.1.0
+dependencies:
+- name: ingress-nginx
+  repository: https://kubernetes.github.io/ingress-nginx
+  version: 3.29.0
+- condition: air-ui-oss.enabled
+  name: air-ui-oss
+  repository: file://../air-ui-oss
+  version: 0.1.0
+- condition: mosquitto.enabled
+  name: mosquitto
+  repository: https://storage.googleapis.com/t3n-helm-charts
+  version: 2.3.0
+- condition: dgraph.enabled
+  name: dgraph
+  repository: https://charts.dgraph.io
+  version: 0.0.17
+- name: air-data-mqtt-dgraph
+  repository: file://../air-data-mqtt-dgraph
+  version: 0.1.0
+- name: air-metadata-mqtt-dgraph
+  repository: file://../air-metadata-mqtt-dgraph
+  version: 0.1.0
+- name: air-notification-mqtt-dgraph
+  repository: file://../air-notification-mqtt-dgraph
+  version: 0.1.0
+- name: dgraph-loader
+  repository: file://../dgraph-loader
+  version: 0.0.1
+description: A Helm chart for Project Air
+name: air
+type: application
+version: 0.1.0
