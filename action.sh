@@ -11,7 +11,7 @@ HELM_VERSION=$(echo $HELM_VERSION | sed 's/[^0-9]*//g')
 
 if [ $HELM_VERSION -gt 370 ]
 then
-    helm pull "${INPUT_CHART_AND_TAG}" --untar --untardir "${INPUT_TARGET_DIRECTORY}"
+    helm pull "oci://${INPUT_CHART_AND_TAG}" --untar --untardir "${INPUT_TARGET_DIRECTORY}"
     echo "✅ ${INPUT_CHART_AND_TAG} pulled successfully"
     echo "✅ ${INPUT_CHART_AND_TAG} saved to ${INPUT_TARGET_DIRECTORY} successfully"
     echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"
