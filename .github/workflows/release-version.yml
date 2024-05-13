@@ -1,6 +1,7 @@
 name: Release New Action Version
 
-on: 
+on:
+  workflow_dispatch:
   push:
     branches:
       - "main"
