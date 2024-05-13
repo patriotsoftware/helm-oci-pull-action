@@ -17,7 +17,7 @@ jobs:
         id: helm-pull
         uses: ./
         with:
-          chart-and-tag: public.ecr.aws/karpenter/karpenter:0.36.1
+          chart-and-tag: public.ecr.aws/karpenter/karpenter
 
       - name: List chart files
-        run: ls ${{ steps.helm-pull.outputs.chart-path }}0.36.1
+        run: ls ${{ steps.helm-pull.outputs.chart-path }}
