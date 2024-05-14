@@ -9,7 +9,7 @@ fi
 HELM_VERSION="$(helm version --template='Version: {{.Version}}' )"
 HELM_VERSION=$(echo $HELM_VERSION | sed 's/[^0-9]*//g')
 
-if [ $HELM_VERSION -gt 370 ]
+if [ $HELM_VERSION -ge 380 ]
 then
     helm pull "oci://${INPUT_CHART_AND_TAG}" --untar --untardir "${INPUT_TARGET_DIRECTORY}"
     echo "✅ ${INPUT_CHART_AND_TAG} pulled successfully"
