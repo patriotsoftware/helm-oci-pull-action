@@ -12,9 +12,7 @@ HELM_VERSION=$(echo $HELM_VERSION | sed 's/[^0-9]*//g')
 
 if [ $HELM_VERSION -ge 380 ]
 then
-    echo "Method 1"
     if [[ ${INPUT_CHART_AND_TAG} == *"monochart:latest"* ]]; then
-        echo "Method 3"
         helm pull oci://305628290583.dkr.ecr.us-east-1.amazonaws.com/monochart --untar --untardir "${INPUT_TARGET_DIRECTORY}"
         echo "✅ Latest Monochart pulled successfully"
     else
@@ -22,9 +20,8 @@ then
         echo "✅ ${INPUT_CHART_AND_TAG} pulled successfully"
     fi
     echo "✅ ${INPUT_CHART_AND_TAG} saved to ${INPUT_TARGET_DIRECTORY} successfully"
-    echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"  
+    echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"
 else
-    echo "Method 2"
     helm chart pull "${INPUT_CHART_AND_TAG}" 
     echo "✅ ${INPUT_CHART_AND_TAG} pulled successfully"
     helm chart export "${INPUT_CHART_AND_TAG}" --destination "${INPUT_TARGET_DIRECTORY}"
