@@ -27,3 +27,4 @@ else
     helm chart export "${INPUT_CHART_AND_TAG}" --destination "${INPUT_TARGET_DIRECTORY}"
     echo "✅ ${INPUT_CHART_AND_TAG} saved to ${INPUT_TARGET_DIRECTORY} successfully"
     echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"
+fi
