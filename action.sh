@@ -13,7 +13,7 @@ HELM_VERSION=$(echo $HELM_VERSION | sed 's/[^0-9]*//g')
 if [ $HELM_VERSION -ge 380 ]
 then
     if [[ ${INPUT_CHART_AND_TAG} == *"monochart:latest"* ]]; then
-        helm pull oci://305628290583.dkr.ecr.us-east-1.amazonaws.com/monochart --untar --untardir "${INPUT_TARGET_DIRECTORY}"
+        helm pull "oci://${INPUT_AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/monochart" --untar --untardir "${INPUT_TARGET_DIRECTORY}"
         echo "✅ Latest Monochart pulled successfully"
     else
         helm pull "oci://${INPUT_CHART_AND_TAG}" --untar --untardir "${INPUT_TARGET_DIRECTORY}"
