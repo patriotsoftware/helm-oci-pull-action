@@ -2,7 +2,7 @@ name: Helm OCI Pull Action
 description: Pull a Helm chart from an OCI-compliant repository and save to a local directory
 
 inputs:
-  chart: 
+  chart-and-tag: 
     description: Helm Chart
     required: true
   version: 
@@ -33,7 +33,7 @@ runs:
   steps:
     - id: pull-chart
       env:
-        INPUT_CHART: ${{ inputs.chart }}
+        INPUT_CHART: ${{ inputs.chart-and-tag }}
         INPUT_VERSION: ${{ inputs.version }}
         INPUT_TARGET_DIRECTORY: ${{ inputs.target-directory }}
         INPUT_ECR_LOGIN: ${{ inputs.ecr-login }}
