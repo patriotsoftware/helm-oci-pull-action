@@ -3,8 +3,11 @@ description: Pull a Helm chart from an OCI-compliant repository and save to a lo
 
 inputs:
   chart-and-tag: 
-    description: Helm Chart and tag to pull
+    description: Helm Chart
     required: true
+  version: 
+    description: Helm Chart version
+    required: false
   target-directory:
     description: Target base directory to use when saving the chart locally. Will save to <target-directory>/<chart-name>
     required: false
@@ -30,7 +33,8 @@ runs:
   steps:
     - id: pull-chart
       env:
-        INPUT_CHART_AND_TAG: ${{ inputs.chart-and-tag }}
+        INPUT_CHART: ${{ inputs.chart-and-tag }}
+        INPUT_VERSION: ${{ inputs.version }}
         INPUT_TARGET_DIRECTORY: ${{ inputs.target-directory }}
         INPUT_ECR_LOGIN: ${{ inputs.ecr-login }}
         INPUT_AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
