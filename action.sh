@@ -26,11 +26,11 @@ then
         echo "✅ ${INPUT_CHART} pulled successfully"
     fi
     echo "✅ ${INPUT_CHART} saved to ${INPUT_TARGET_DIRECTORY} successfully"
-    echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"
+    echo "chart-path=${INPUT_TARGET_DIRECTORY}" >> "$GITHUB_OUTPUT"
 else
     helm chart pull "${INPUT_CHART}" 
     echo "✅ ${INPUT_CHART} pulled successfully"
     helm chart export "${INPUT_CHART}" --destination "${INPUT_TARGET_DIRECTORY}"
     echo "✅ ${INPUT_CHART} saved to ${INPUT_TARGET_DIRECTORY} successfully"
-    echo "::set-output name=chart-path::${INPUT_TARGET_DIRECTORY}"
+    echo "chart-path=${INPUT_TARGET_DIRECTORY}" >> "$GITHUB_OUTPUT"
 fi
